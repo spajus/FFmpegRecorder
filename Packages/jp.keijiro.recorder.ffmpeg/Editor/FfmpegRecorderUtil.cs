@@ -13,11 +13,11 @@ namespace FFmpegOut.Recorder
         public static void ForceEvenResolutionPublic
             (this ImageInputSelector selector, bool value)
         {
-            var method = typeof(ImageInputSelector).GetMethod(
-                "ForceEvenResolution",
-                BindingFlags.Instance | BindingFlags.NonPublic
-            );
-            method.Invoke(selector, new object [] { value });
+            // var method = typeof(ImageInputSelector).GetMethod(
+            //     "ForceEvenResolution",
+            //     BindingFlags.Instance | BindingFlags.NonPublic
+            // );
+            // method.Invoke(selector, new object [] { value });
         }
     }
 }

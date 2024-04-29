@@ -29,13 +29,14 @@ namespace FFmpegOut.Recorder
             Settings.FileNameGenerator.CreateDirectory(session);
 
             var input = m_Inputs[0] as BaseRenderTextureInput;
-            var args = 
+            var args =
                 "-y -f rawvideo -vcodec rawvideo -pixel_format rgba"
                 + " -colorspace bt709 -color_trc iec61966-2-1"
                 + " -video_size " + input.OutputWidth + "x" + input.OutputHeight
                 + " -framerate " + session.settings.FrameRate
                 + " -loglevel error -i - " + Settings.preset.GetOptions()
                 + " " + Settings.FrameRateArgs
+                + " -vf \"vflip\""
                 + " \"" + Settings.FileNameGenerator.BuildAbsolutePath(session) + "\"";
 
             _pipe = new FFmpegPipe(args);
